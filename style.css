@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+p {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.main-container .game-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container .game-settings .settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.main-container .game-settings .settings-container .radio-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main-container .game-settings .settings-container div button {
+  margin-top: 30px;
+  border: 0;
+  border: 1px solid #4d13d1;
+  padding: 10px 20px;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #4d13d1;
+  cursor: pointer;
+}
+
+.main-container .game-settings .settings-container .game-active {
+  margin-top: 30px;
+}
+
+.main-container .game-settings .settings-container .game-active p {
+  font-size: 45px;
+  color: #888;
+}
+
+.main-container .game-settings .settings-container .game-active input {
+  margin-top: 30px;
+  padding: 10px 5px;
+  border: 1px solid #888;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+}
+
+.score {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+
+.score .score-info {
+  margin-bottom: 10px;
+}
+
+.score .score-info:first-child {
+  color: #888;
+  font-weight: 500;
+}
+
+.score .score-info:nth-child(2) {
+  color: #26c281;
+  font-weight: 500;
+}
+
+.score .score-info:nth-child(3) {
+  color: #d91e18;
+  font-weight: 500;
+}
+
+.score .score-info:last-child {
+  color: #4d13d1;
+  font-weight: 500;
+}
+
+.radio-group {
+  position: relative;
+}
+
+.radio-group label {
+  padding: 0px 30px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  color: #888;
+}
+
+.radio-group:last-child label {
+  padding: 0 0 0 30px;
+}
+
+.radio-group label:after {
+  width: 18px;
+  height: 18px;
+  content: "";
+  border: 2px solid #d1d7dc;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E");
+  background-position: 2px 3px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.radio-group input:checked ~ label:after {
+  background-color: #4d13d1;
+  border-color: #4d13d1;
+}
+
+.radio-group input {
+  position: absolute;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+/*-------------ALPHABET-------------*/
+.main-container .alphabet {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.main-container .alphabet p {
+  padding: 10px;
+  color: #888;
+  font-size: 25px;
+}
+
+.main-container .alphabet .row-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container .alphabet .row-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container .alphabet .row-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container .alphabet .row-4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container .alphabet .row-5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

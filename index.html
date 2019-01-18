@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Task 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="game-settings">
+        <div class="helper"></div>
+        <div class="settings-container">
+          <div class="radio-items">
+            <div class="radio-group">
+              <input type="radio" name="difficulty" id="easy" checked/>
+              <label for="easy">Easy</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="difficulty" id="medium" />
+              <label for="medium">Medium</label>
+            </div>
+            <div class="radio-group">
+              <input type="radio" name="difficulty" id="hard" />
+              <label for="hard">Hard</label>
+            </div>
+          </div>
+          <div>
+            <button id="start">Start Game</button>
+          </div>
+          <div class="game-active">
+            <p id="current-number">0</p>
+            <input id="letter-input" type="text" placeholder="Input Letter"/>
+          </div>
+        </div>
+      </div>
+      <div class="alphabet">
+        <div class="row-1">
+          <p class="letter" id="1">A (1)</p>
+          <p class="letter" id="2">B (2)</p>
+          <p class="letter" id="3">C (3)</p>
+          <p class="letter" id="4">D (4)</p>
+          <p class="letter" id="5">E (5)</p>
+          <p class="letter" id="6">F (6)</p>
+        </div>
+        <div class="row-2">
+          <p class="letter" id="7">G (7)</p>
+          <p class="letter" id="8">H (8)</p>
+          <p class="letter" id="9">I (9)</p>
+          <p class="letter" id="10">J (10)</p>
+          <p class="letter" id="11">K (11)</p>
+          <p class="letter" id="12">L (12)</p>
+        </div>
+        <div class="row-3">
+          <p class="letter" id="13">M (13)</p>
+          <p class="letter" id="14">N (14)</p>
+          <p class="letter" id="15">O (15)</p>
+          <p class="letter" id="16">P (16)</p>
+          <p class="letter" id="17">Q (17)</p>
+          <p class="letter" id="18">R (18)</p>
+        </div>
+        <div class="row-4">
+          <p class="letter" id="19">S (19)</p>
+          <p class="letter" id="20">T (20)</p>
+          <p class="letter" id="21">U (21)</p>
+          <p class="letter" id="22">V (22)</p>
+          <p class="letter" id="23">W (23)</p>
+          <p class="letter" id="24">X (24)</p>
+        </div>
+        <div class="row-5">
+          <p class="letter" id="25">Y (25)</p>
+          <p class="letter" id="26">Z (26)</p>
+        </div>
+      </div>
+    </div>
+    <div class="score">
+      <p class="score-info">SCORE</p>
+      <p class="score-info">HIT: <span id="hit">0</span></p>
+      <p class="score-info">MISS: <span id="miss">0</span></p>
+      <p class="score-info">LEFT: <span id="left">26</span></p>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
