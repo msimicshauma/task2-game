@@ -12,6 +12,7 @@ const left = document.getElementById("left");
 letterInput.disabled = true;
 
 let random; //Stores current random number
+let trueRandom; //Stores current random number that is not a duplicate
 let pastNumbers = []; //Stores the numbers that were generated
 let counter = 0; //Used for pastNumbers array
 let timer; //Stores the randomNumber function, used for clearInterval()
@@ -71,37 +72,50 @@ const randomNumber = () => {
 
   if (!checkDouble(random)) {
     currentNumber.innerHTML = random;
-
-    if (letterInput.value === "") {
-      const letter = document.getElementById(random.toString());
-      letter.style.color = "#d91e18";
-    }
-
-    leftCounter--;
-    left.innerHTML = leftCounter;
-    missCounter = 26 - (leftCounter + hitCounter);
-    miss.innerHTML = missCounter;
-    letterInput.disabled = false;
-    letterInput.focus();
+    trueRandom = random;
   } else if (checkDouble(random) === 1) {
     letterInput.disabled = true;
-    clearInterval(timer);
   } else randomNumber();
 };
 
-//Checks if the input matches random number
-//Called on input (keyup)
+const isEmpty = input => {
+  const letter = document.getElementById(trueRandom.toString());
+
+  if (leftCounter === 0) {
+    clearInterval(timer);
+    return 0;
+  }
+
+  if (input === "" || input.length > 1 || input === " ") {
+    letter.style.color = "#d91e18";
+    missCounter++;
+    miss.innerHTML = missCounter;
+  }
+
+  letterInput.value = "";
+  letterInput.disabled = false;
+  letterInput.focus();
+
+  leftCounter--;
+  left.innerHTML = leftCounter;
+
+  randomNumber();
+}
+
 const checkGuess = input => {
   let guessNumber = 0;
+  const letter = document.getElementById(trueRandom.toString());
+
   for (let i = 0; i < alphabetArray.length; i++) {
     if (alphabetArray[i] === input) {
       guessNumber = alphabet[input];
-      const letter = document.getElementById(random.toString());
       if (guessNumber === random) {
         letter.style.color = "#26c281";
         hitCounter++;
         hit.innerHTML = hitCounter;
-        missCounter = 26 - (leftCounter + hitCounter);
+      } else {
+        letter.style.color = "#d91e18";
+        missCounter++;
         miss.innerHTML = missCounter;
       }
     }
@@ -154,10 +168,13 @@ button.addEventListener("click", () => {
     isActive = 1;
     button.innerHTML = "Stop";
     disableRadio();
+    letterInput.disabled = false;
     letterInput.focus();
     letterInput.placeholder = "";
     randomNumber();
-    timer = setInterval(randomNumber, difficulty);
+    timer = setInterval(function() {
+      isEmpty(letterInput.value);
+    }, difficulty);
   } else {
     clearInterval(timer);
     isActive = 0;
@@ -166,6 +183,7 @@ button.addEventListener("click", () => {
     resetColors();
     resetCounters();
     letterInput.placeholder = "Input Letter";
+    letterInput.value = "";
     currentNumber.innerHTML = "0";
     pastNumbers = [];
     counter = 0;
@@ -176,5 +194,15 @@ letterInput.addEventListener("keyup", () => {
   const input = letterInput.value.toLowerCase();
   letterInput.disabled = true;
   checkGuess(input);
-  letterInput.value = "";
 });
+
+/*if (letterInput.value === "") {
+  const letter = document.getElementById(random.toString());
+  letter.style.color = "#d91e18";
+}*/
+
+/*leftCounter--;
+left.innerHTML = leftCounter;
+missCounter = 26 - (leftCounter + hitCounter);
+miss.innerHTML = missCounter;
+letterInput.disabled = false;*/
